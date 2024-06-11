@@ -1,9 +1,13 @@
+// Import
 import type { AppProps } from "next/app";
-import "../styles/global.css"
+
 import { Inter } from 'next/font/google'
-import {ApolloProvider} from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
 import { client } from "@/lib/apollo";
 
+import "../styles/global.css"
+
+// Definição da fonte de texto
 const inter = Inter({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -11,12 +15,16 @@ const inter = Inter({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  return(
+  // Início do código
+  return (
+    // Componente de consultas
     <ApolloProvider
-    client={client}>
+      client={client}>
+
+      {/* Uso das fontes */}
       <main className={`${inter.variable} font-sans`}>
-      <Component {...pageProps} />;
-    </main>
+        <Component {...pageProps} />;
+      </main>
     </ApolloProvider>
   )
 }
